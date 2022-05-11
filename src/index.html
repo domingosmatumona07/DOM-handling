@@ -25,7 +25,7 @@
       rel="stylesheet"
     />
     <!-- Our stylesheet -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
     <title>Login</title>
   </head>
   <body>
@@ -38,13 +38,23 @@
         <div id="form-content-container">
           <div id="form-content-inner-container">
             <div class="login-form">
-              <input type="email" id="email" placeholder="Email" />
-              <input type="password" id="password" placeholder="Password" />
+              <div class="email-box">
+                <input type="email" id="login-email" placeholder="Email" />
+                <span class="log_email_error"></span>
+              </div>
+              <div class="password-box">
+                <input
+                  type="password"
+                  id="login-password"
+                  placeholder="Password"
+                />
+                <span class="log_password_error"></span>
+              </div>
             </div>
 
             <div class="signup-form">
-              <input type="text" id="first-name" placeholder="First name" />
-              <input type="text" id="last-name" placeholder="Last name" />
+              <input type="text" id="firstName" placeholder="First name" />
+              <input type="text" id="lastName" placeholder="Last name" />
               <input type="email" id="email" placeholder="Email" />
               <input type="password" id="password" placeholder="Password" />
               <input
@@ -55,12 +65,16 @@
             </div>
 
             <div id="button-container">
-              <button onclick="login()">Login</button>
-              <button onclick="register()">Sign up</button>
+              <button class="login">Login</button>
+              <button class="signup">Sign up</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </body>
+
+  <script src="./js/changeForms.js"></script>
+  <script src="./js/validator.js"></script>
+  <script src="./js/main.js"></script>
 </html>
