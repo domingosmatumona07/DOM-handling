@@ -1,7 +1,8 @@
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
-  background:  #3A86FF;
+  background: #3a86ff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +40,7 @@ html, body {
   padding-bottom: 30px;
   padding-top: 30px;
   border-bottom: 1px solid transparent;
-  border-image: #3A86FF;
+  border-image: #3a86ff;
   background: #000;
 }
 
@@ -82,13 +83,19 @@ input {
   border-bottom: 2px solid transparent;
   border-top-left-radius: 2%;
   border-top-right-radius: 2%;
-  border-bottom:1px solid #3A86FF;
+  border-bottom: 1px solid #3a86ff;
 }
 
 #button-container {
   width: 100%;
   height: 10%;
-  background-image: linear-gradient(80deg, #3A86FF, #3A86FF 50%, #000 50%, #000);
+  background-image: linear-gradient(
+    80deg,
+    #3a86ff,
+    #3a86ff 50%,
+    #000 50%,
+    #000
+  );
   color: #fff;
   margin-top: 5px;
   display: flex;
