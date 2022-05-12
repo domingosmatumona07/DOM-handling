@@ -1,13 +1,3 @@
-html,
-body {
-  width: 100%;
-  height: 100%;
-  background: #3a86ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -16,97 +6,118 @@ body {
   outline: none;
 }
 
-#content-container {
-  width: 30%;
-  height: 70%;
+:root {
+  font-size: 62.5%;
 }
 
-#form-container {
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+  background: #3a86ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-container {
+  width: 25%;
+  height: 74%;
+}
+
+.form-container {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  box-shadow: 0 0 50px -20px #000;
+  box-shadow: 0 0 5rem -2rem #000;
   border-radius: 2%;
   overflow-y: hidden;
 }
 
-#form-header-container {
+.form-header-container {
   width: 100%;
-  height: 5%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 0.1rem solid transparent;
   border-image: #3a86ff;
   background: #000;
 }
 
-#form-header {
-  display: inline-block;
-  font-size: 15px;
-  font-family: Bowlby One SC;
+.form-heading {
+  font-size: 1.5rem;
+  /* font-family: Bowlby One SC; */
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.1rem;
   background: #fff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-block: 2rem;
 }
 
-#form-content-container {
+.form-content-container {
   width: 100%;
   height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 3rem;
 }
 
-#form-content-inner-container {
+.form-content-inner-container {
   width: 75%;
   height: 100%;
 }
 
 input {
   width: 100%;
-  height: 40px;
-  padding-left: 10px;
-  margin-bottom: 20px;
+  height: 4rem;
+  padding-left: 1rem;
   background: #ccc;
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
   font-weight: 500;
   color: #000;
-  font-size: 12px;
-  border-bottom: 2px solid transparent;
+  font-size: 1.2rem;
+  border-bottom: 0.2rem solid transparent;
   border-top-left-radius: 2%;
   border-top-right-radius: 2%;
-  border-bottom: 1px solid #3a86ff;
+  border-bottom: 0.1rem solid #3a86ff;
 }
 
-#button-container {
+span {
+  display: block;
+  color: #f00;
+  font-size: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.button-container {
   width: 100%;
   height: 10%;
   background-image: linear-gradient(
-    80deg,
-    #3a86ff,
+    110deg,
     #3a86ff 50%,
-    #000 50%,
-    #000
+    #3a86ff,
+    rgb(67, 65, 65) 50%,
+    rgb(67, 65, 65)
   );
   color: #fff;
-  margin-top: 5px;
   display: flex;
+  justify-content: center;
+  /* margin-bottom: 2rem; */
 }
 
-#button-container button {
+.button-container button {
   width: 50%;
   height: 100%;
+  padding: 1rem;
   background: transparent;
   color: inherit;
-  font-family: Montserrat;
+  /* font-family: Montserrat; */
   letter-spacing: 1px;
   font-weight: 900;
   font-size: 12px;
@@ -115,4 +126,41 @@ input {
 
 .signup-form {
   display: none;
+}
+
+button[type="submit"] {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  padding-block: 1rem;
+  margin: auto;
+  background-color: #3a86ff;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+button[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+.login-modal,
+.sign-modal {
+  position: fixed;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30rem;
+  text-align: center;
+  color: #000;
+  font-size: 2rem;
+  padding-block: 0.5rem;
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.759);
+  border-bottom: 2px solid blue;
+  border-radius: 0.2rem;
+  transition: step-start 0.2s linear;
+}
+
+.show-modal {
+  z-index: 1;
 }

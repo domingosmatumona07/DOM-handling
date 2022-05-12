@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <title>Login</title>
+    <title>Login/Sign up</title>
     <!-- Cool Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -26,21 +26,24 @@
     />
     <!-- Our stylesheet -->
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
-    <title>Login</title>
   </head>
   <body>
-    <div id="content-container">
-      <div id="form-container">
-        <div id="form-header-container">
-          <h2 id="form-header">Login</h2>
+    <div class="content-container">
+      <div class="form-container">
+        <div class="form-header-container">
+          <h2 class="form-heading">Login</h2>
+          <div class="button-container">
+            <button class="login">Login</button>
+            <button class="signup">Sign up</button>
+          </div>
         </div>
 
-        <div id="form-content-container">
-          <div id="form-content-inner-container">
-            <div class="login-form">
+        <div class="form-content-container">
+          <div class="form-content-inner-container">
+            <form class="login-form">
               <div class="email-box">
                 <input type="email" id="login-email" placeholder="Email" />
-                <span class="log_email_error"></span>
+                <span class="login_email_error"></span>
               </div>
               <div class="password-box">
                 <input
@@ -48,26 +51,43 @@
                   id="login-password"
                   placeholder="Password"
                 />
-                <span class="log_password_error"></span>
+                <span class="login_password_error"></span>
               </div>
-            </div>
 
-            <div class="signup-form">
-              <input type="text" id="firstName" placeholder="First name" />
-              <input type="text" id="lastName" placeholder="Last name" />
-              <input type="email" id="email" placeholder="Email" />
-              <input type="password" id="password" placeholder="Password" />
-              <input
-                type="password"
-                id="confirm-password"
-                placeholder="Confirm Password"
-              />
-            </div>
+              <button type="submit">LOGIN</button>
 
-            <div id="button-container">
-              <button class="login">Login</button>
-              <button class="signup">Sign up</button>
-            </div>
+              <div class="login-modal"></div>
+            </form>
+
+            <form class="signup-form">
+              <div class="firstName-box">
+                <input type="text" id="firstName" placeholder="First name" />
+                <span class="emptyFirstName"></span>
+              </div>
+              <div class="lastName-box">
+                <input type="text" id="lastName" placeholder="Last name" />
+                <span class="emptyLastName"></span>
+              </div>
+              <div class="email-box">
+                <input type="email" id="email" placeholder="Email" />
+                <span class="email_error"></span>
+              </div>
+              <div class="password-box">
+                <input type="password" id="password" placeholder="Password" />
+                <span class="password_error"></span>
+              </div>
+              <div class="confirmPassword-box">
+                <input
+                  type="password"
+                  id="password_confirm"
+                  placeholder="Confirm Password"
+                />
+                <span class="password_confirm_error"></span>
+              </div>
+
+              <button type="submit">SIGN UP</button>
+              <div class="sign-modal"></div>
+            </form>
           </div>
         </div>
       </div>
@@ -76,5 +96,6 @@
 
   <script src="./js/changeForms.js"></script>
   <script src="./js/validator.js"></script>
+  <script type="module" src="./js/signup.js"></script>
   <script src="./js/main.js"></script>
 </html>
