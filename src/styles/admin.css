@@ -1,0 +1,245 @@
+@import url("../fontawesome-free/css/fontawesome-all.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: none; */
+}
+
+:root {
+  font-size: 62.5%;
+  --wrapper-container-width: 15%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(0, 0, 0, 0.753);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  display: flex;
+  width: 74%;
+  height: 100vh;
+  margin: auto;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.334);
+}
+
+.wrapper {
+  width: var(--wrapper-container-width);
+  height: 100vh;
+  background-color: #3a86ff;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding-block: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.wrapper .header {
+  font-size: 1.5rem;
+}
+
+.wrapper .menu-bar {
+  font-size: 2rem;
+}
+
+.menu-bar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+}
+
+.menu-bar ul li:nth-child(2) {
+  background-color: blue;
+  /* position: absolute; */
+  width: 100%;
+  color: #fff;
+  padding-block: 0.8rem;
+}
+
+.menu-bar ul li a {
+  color: #fff;
+}
+
+.wrapper .footer .social-links ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-links ul a {
+  color: #fff;
+}
+
+main {
+  width: calc(100% - var(--wrapper-container-width));
+  background-color: #fff;
+  padding-inline: 4rem;
+  font-size: 1.6rem;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+main .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.header .admin-info,
+.header .admin-info > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header .admin-info {
+  gap: 2rem;
+}
+
+.header .admin-info i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header .admin-info span {
+  cursor: pointer;
+  display: none;
+}
+
+.header .adminName {
+  font-size: 2rem;
+}
+
+.userLabels {
+  background-color: rgb(189, 187, 187);
+  padding-block: 1.2rem;
+  padding-inline: 2rem;
+  border-radius: 5px;
+  margin-bottom: 2.5rem;
+}
+
+.userLabels ul {
+  display: flex;
+}
+
+.userLabels ul div {
+  display: flex;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.users .user {
+  padding-block: 1.2rem;
+  padding-inline: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.503);
+  border-radius: 5px;
+}
+
+.user .left,
+.user .right {
+  display: flex;
+}
+
+.userLabels ul > div.left li:nth-of-type(1),
+.user .left > div:nth-of-type(1) {
+  width: 6rem;
+}
+
+.userLabels ul > div.left li,
+.user .left > div {
+  width: 24rem;
+}
+
+.userLabels ul > div.right li,
+.user .right > div {
+  width: 12rem;
+}
+
+.user .right .iconsContainer {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.user .right .iconsContainer i {
+  cursor: pointer;
+}
+
+.down-angle {
+  position: relative;
+}
+
+.down-angle .dropdown {
+  min-width: 7rem;
+  position: absolute;
+  background-color: gray;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: -1;
+  visibility: hidden;
+}
+
+.down-angle .dropdown > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.down-angle .dropdown .delete {
+  padding-inline: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.down-angle:hover .dropdown {
+  z-index: 1;
+  visibility: visible;
+}
+
+/* SEARCH CONTAINER */
+
+.search-container {
+  width: 100%;
+  display: none;
+}
+
+.search-container h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.search-container input {
+  margin-top: 0;
+  font-size: 1.7rem;
+  width: 100%;
+  height: 5rem;
+  border-radius: 1rem;
+  padding-inline: 1rem;
+  margin-bottom: 2rem;
+}

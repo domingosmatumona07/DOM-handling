@@ -1,14 +1,261 @@
+@import url("../fontawesome-free/css/fontawesome-all.min.css");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: none;
 }
 
 :root {
   font-size: 62.5%;
+  --wrapper-container-width: 35rem;
 }
 
 body {
   height: 100vh;
+  width: 100%;
   font-size: 1.6rem;
+  font-family: Arial;
+}
+
+.container {
+  height: inherit;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  box-shadow: 0px 0px 20px rgba(11, 11, 11, 0.49);
+}
+
+.lessOpacity::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.188);
+}
+
+.wrapper-container {
+  background-color: #325cb7;
+  width: var(--wrapper-container-width);
+  height: 100%;
+  position: relative;
+}
+
+.wrapper-container .inner-content .menu-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding-top: 0.5rem;
+  padding-inline: 0.8rem;
+  border-bottom: 0.1rem solid #2c3338;
+}
+
+.wrapper-container .inner-content .menu-bar svg {
+  width: 2.5rem;
+}
+
+.wrapper-container .menu-bar button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.wrapper-container .menu {
+  width: 0%;
+  height: 100vh;
+  background: rgb(31, 31, 31);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.wrapper-container .menu .close-menu-box {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.wrapper-container .expanded {
+  width: 80%;
+}
+
+.wrapper-container .expanded .close-menu-box {
+  display: flex;
+  justify-content: right;
+  padding-right: 10px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.wrapper-container .menu .main-content {
+  color: #fff;
+}
+
+.wrapper-container .menu .main-content div {
+  border-bottom: 1px solid gray;
+  padding-block: 1.4rem;
+}
+
+.wrapper-container .menu .main-content div a {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: left;
+  gap: 0.8rem;
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
+  padding-left: 0.4rem;
+}
+
+.wrapper-container .menu .main-content div svg[class^="icon-"] {
+  fill: #fff;
+}
+
+main {
+  width: calc(100% - var(--wrapper-container-width));
+  background-color: #1d2327;
+  overflow-y: scroll;
+}
+
+main .main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #8c8f94;
+  height: 4rem;
+  border-bottom: 0.1px solid #2c3338;
+  padding-inline: 1rem;
+}
+
+.main-header .user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.main-header .user-info a {
+  color: rgb(46, 104, 250);
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+section .title {
+  color: #8c8f94;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.notes-container {
+  margin-top: 4rem;
+}
+
+.notes-container .emptyNotes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.notes-container .emptyNotes img {
+  width: 100%;
+  height: 35rem;
+}
+
+.notes-container .emptyNotes p {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0.4rem;
+  color: rgba(255, 255, 255, 0.647);
+}
+
+.add-note-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.975);
+  padding: 2rem;
+  border-radius: 0.4rem;
+  color: #fff;
+  z-index: -1;
+  visibility: hidden;
+  transition: all 0.1s ease-in-out;
+}
+
+.add-note-modal .inner-content div {
+  margin-bottom: 2rem;
+}
+
+.add-note-modal .inner-content input,
+textarea {
+  outline: none;
+  padding-left: 0.4rem;
+  padding-block: 0.7rem;
+  opacity: 0.8;
+  margin-top: 0.2rem;
+  background: #2b50a19d;
+  color: #fff;
+  border-radius: 0.3rem;
+}
+
+.add-note-modal .inner-content button {
+  background-color: #2b50a1;
+  color: #fff;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.show-modal {
+  z-index: 200;
+  visibility: visible;
+}
+
+.notes-inner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin-block: 3rem;
+}
+
+.notes-inner-content .note {
+  width: 60%;
+  height: 8rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-width: 60%;
+  background-color: rgb(193, 190, 190);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  position: relative;
+}
+
+.notes-inner-content .note h4 {
+  font-size: 1.8rem;
+}
+
+.note .date-container {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.3rem;
+  font-size: 1.3rem;
+}
+
+.note .delete-box {
+  position: absolute;
+  right: 0.5rem;
+  top: 1.5rem;
+}
+
+.note .delete-box i {
+  cursor: pointer;
 }

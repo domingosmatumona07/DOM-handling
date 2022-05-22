@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="wrapper">
+        <div class="header">
+          <h2>Admin Page</h2>
+        </div>
+
+        <aside class="menu-bar">
+          <nav>
+            <ul>
+              <li>Dashboard</li>
+              <li><a href="#">Users</a></li>
+              <li>Statistic</li>
+              <li>Pendencies</li>
+            </ul>
+          </nav>
+        </aside>
+
+        <div class="footer">
+          <div class="social-links">
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Google</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <div class="header">
+          <div>
+            <h2>Users</h2>
+            <span class="usersFound"></span>
+          </div>
+          <div class="admin-info">
+            <i class="fas fa-search" id="search"></i>
+            <span
+              aria-expanded="true"
+              aria-label="Close search"
+              id="close-search"
+            >
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M30 10L10 30M10 10L30 30"
+                  stroke="#000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <div>
+              <div class="adminName"></div>
+              <i class="fas fa-angle-down"></i>
+            </div>
+          </div>
+        </div>
+
+        <section class="users-container">
+          <div class="search-container">
+            <form action="">
+              <h2>Search</h2>
+
+              <input type="search" name="search-input" id="search-input" />
+            </form>
+          </div>
+
+          <div class="userLabels">
+            <ul>
+              <div class="left">
+                <li>Id</li>
+                <li>Name</li>
+                <li>Email</li>
+              </div>
+              <div class="right">
+                <li>Date</li>
+                <li>Status</li>
+                <li>Action</li>
+              </div>
+            </ul>
+          </div>
+          <div class="users"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../js/admin.js" type="module"></script>
+  </body>
+</html>
