@@ -82,8 +82,8 @@
                   </div>
 
                   <div class="main-content">
-                    <div>
-                      <a href="#">
+                    <div id="all-notes" onclick="goToAllNotes()">
+                      <a href="#all-notes">
                         <span>All notes</span>
                         <svg
                           class="icon-notes"
@@ -97,8 +97,9 @@
                         </svg>
                       </a>
                     </div>
-                    <div>
-                      <a href="#">
+
+                    <div id="trash" onclick="goToTrash()">
+                      <a href="#trash">
                         <span>Trash</span>
                         <svg
                           class="icon-trash"
@@ -112,8 +113,9 @@
                         </svg>
                       </a>
                     </div>
-                    <div>
-                      <a href="#">
+
+                    <div id="settings">
+                      <a href="#settings">
                         <span>Settings</span>
                         <svg
                           class="icon-settings"
@@ -146,11 +148,20 @@
           </div>
         </header>
 
-        <section>
+        <section class="all-notes">
           <div class="title">
             <h2>All Notes</h2>
           </div>
 
+          <div class="notes-container">
+            <div class="notes-inner-content"></div>
+          </div>
+        </section>
+
+        <section class="trash-container">
+          <div class="title">
+            <h2>Trash</h2>
+          </div>
           <div class="notes-container">
             <div class="notes-inner-content"></div>
           </div>
