@@ -1,6 +1,5 @@
 'use strict';
 
-import { users } from './users.js';
 import { createUser } from './crud.js'; 
 import { firstName, lastName, email, password, signUpStatusOk } from './validator.js';
 
@@ -8,9 +7,10 @@ const signUpForm = document.querySelector('.signup-form');
 const formModal = document.querySelector('.sign-modal');
 
 signUpForm.addEventListener('submit', (event) => {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
         event.preventDefault();
         if(signUpStatusOk()) {
-            if(userAlreadyExists(email.value)) {
+            if(userAlreadyExists(email.value, users)) {
                 showModal('This user already exists!');
             } else {
                 createUser(firstName.value, lastName.value, email.value, password.value);
@@ -34,7 +34,7 @@ function showModal(text) {
     }, 1300);
 }
 
-function userAlreadyExists(email) {
+function userAlreadyExists(email, users) {
     const user = users.find(user => user.email == email);
     return user && true || false; 
 }

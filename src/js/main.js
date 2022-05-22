@@ -22,6 +22,26 @@ function closeModal() {
     container.classList.remove('lessOpacity');
 }
 
+const addNotesIcon = document.querySelector('.add-notes');
+
+function goToAllNotes() {
+    const trashContainer = document.querySelector('.trash-container');
+    const allNotesContainer = document.querySelector('.all-notes');
+
+    addNotesIcon.style.visibility = 'visible';
+    trashContainer.style.display = 'none';
+    allNotesContainer.style.display = 'block';
+}
+
+function goToTrash() {
+    const allNotesContainer = document.querySelector('.all-notes');
+    const trashContainer = document.querySelector('.trash-container');
+
+    addNotesIcon.style.visibility = 'hidden';
+    allNotesContainer.style.display = 'none';
+    trashContainer.style.display = 'block';
+}
+
 /* USER INFO */
 
 const userName = document.querySelector('.user-info .username');
@@ -36,6 +56,7 @@ const container = document.querySelector('.container');
 /* NOTES */
 
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
+let trash = JSON.parse(localStorage.getItem('trash')) || [];
 
 const buttonAddNote = document.getElementById('addNote');
 
@@ -69,6 +90,7 @@ function pushNotes(title, description) {
 /* RENDERING NOTES */
 
 const notesContent = document.querySelector('.notes-inner-content');
+notesContent.classList.add('allUserNotes');
 
 function renderNotes() {
     notesContent.innerHTML = '';
@@ -76,22 +98,45 @@ function renderNotes() {
 
     if(userNotes.length) {
         userNotes.forEach((note) => {
-            appendNoteContent(note);
+            appendNoteContent(note, notesContent);
         });
         return;
     }
 
+    setIsEmpty(notesContent, "You don't have registered notes");
+
+}
+
+/* TRASH */
+
+const trashNotesContent = document.querySelector('.trash-container .notes-inner-content');
+trashNotesContent.classList.add('trashUserNotes');
+
+function renderTrash() {
+    trashNotesContent.innerHTML = '';
+    const userTrash = trash.filter((tsh) => tsh.userId === userLoggedIn.id);
+
+    if(userTrash.length) {
+        userTrash.forEach((note) => {
+            appendNoteContent(note, trashNotesContent);
+        });
+        return;
+    }
+
+    setIsEmpty(trashNotesContent, "Your trash is empty!");
+}
+
+function setIsEmpty(container, text) {
     const emptyNotesElement = document.createElement('div');
     emptyNotesElement.classList.add('emptyNotes');
     emptyNotesElement.innerHTML = `
         <img src="../images/no-image-icon-32.png" alt="" />
-        <p>You don't have registered notes.</p>
+        <p>${text}.</p>
     `;
-    notesContent.appendChild(emptyNotesElement);
-
+    container.appendChild(emptyNotesElement);
 }
 
-function appendNoteContent(note) {
+function appendNoteContent(note, container) {
     const titleElement = document.createElement('h4');
     const descriptionElement = document.createElement('p');
     const noteElement = document.createElement('div');
@@ -108,7 +153,7 @@ function appendNoteContent(note) {
         <i class="fas fa-trash-alt"></i>
     `;
 
-    deleteBox.addEventListener('click', () => deleteNote(note));
+    deleteBox.addEventListener('click', () => deleteNote(note, container));
 
     titleElement.textContent = title;
     descriptionElement.textContent = description;
@@ -121,13 +166,23 @@ function appendNoteContent(note) {
     noteElement.appendChild(descriptionElement);
     noteElement.appendChild(date_container);
     noteElement.appendChild(deleteBox);
-    notesContent.appendChild(noteElement);
+    container.appendChild(noteElement);
 }
 
-function deleteNote(note) {
-    notes = notes.filter(nt => nt !== note);
-    localStorage.setItem('notes', JSON.stringify(notes));
-    renderNotes();
+function deleteNote(note, container) {
+    if(container.classList.contains('allUserNotes')) {
+        trash.push(note);
+        localStorage.setItem('trash', JSON.stringify(trash));
+        notes = notes.filter(nt => nt !== note);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        renderNotes();
+        renderTrash();
+        return;
+    }
+
+    trash = trash.filter(nt => nt !== note);
+    localStorage.setItem('trash', JSON.stringify(trash));
+    renderTrash();
 }
 
 function logout() {
@@ -144,3 +199,4 @@ function logout() {
 }
 
 renderNotes();
+renderTrash();

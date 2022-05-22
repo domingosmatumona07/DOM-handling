@@ -31,6 +31,10 @@ function deleteAllUserData(users, userId, userTargetIndex) {
     let notes = JSON.parse(localStorage.getItem('notes')) || [];
     notes = notes.filter(note => note.userId !== Number(userId));
     localStorage.setItem('notes', JSON.stringify(notes));
+
+    let trash = JSON.parse(localStorage.getItem('trash')) || [];
+    trash = trash.filter(tsh => tsh.userId !== Number(userId));
+    localStorage.setItem('trash', JSON.stringify(trash));
 }
 
 export function updateUserById(users, id, datas) {

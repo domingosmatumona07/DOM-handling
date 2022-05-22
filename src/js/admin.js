@@ -67,24 +67,6 @@ function callback({ id, firstName, lastName, email, status }) {
     usersContainer.appendChild(userElement);
 }
 
-document.addEventListener('click', (e) => {
-    const target = e.target;
-    if(e.target.classList.contains('delete')) {
-        deleteUser(target.getAttribute('userId'));
-    }
-});
-
-function deleteUser(userId) {
-    deleteUserById(users, userId);
-
-    usersLength--;
-    usersFound.textContent = `${usersLength} users found`;
-
-    usersContainer.innerHTML = '';
-    searchResult.innerHTML = '';
-    renderUsers();
-}
-
 /* SEARCH */
 
 const searchContainer = document.querySelector('.search-container');
@@ -106,6 +88,7 @@ closeSearch.addEventListener('click', () => {
     closeSearch.style.display = 'none';
     searchButton.style.display = 'block';
     usersFound.textContent = usersLength > 1 && `${usersLength} users found` || `${usersLength} user found`;
+    usersContainer.innerHTML = '';
     renderUsers();
 });
 
@@ -135,6 +118,23 @@ function searchUser() {
             !user.isAdmin && callback(user);
         });
     }
+}
+
+document.addEventListener('click', (e) => {
+    const target = e.target;
+    if(e.target.classList.contains('delete')) {
+        deleteUser(target.getAttribute('userId'));
+    }
+});
+
+function deleteUser(userId) {
+    deleteUserById(users, userId);
+
+    usersLength--;
+    usersFound.textContent = `${usersLength} users found`;
+
+    usersContainer.innerHTML = '';
+    renderUsers();
 }
 
 renderUsers();

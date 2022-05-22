@@ -1,18 +1,24 @@
-'use strict';
 
-export const users = JSON.parse(localStorage.getItem('users')) || [
-    {
-        id: 1,
-        firstName: 'Domingos',
-        lastName: 'Matumona',
-        email: 'domingosmatumona73@gmail.com',
-        password: '123456780',
-        isAdmin: true,
-        status: 'Offline',
-    }
-];
+function setDefault() {
+    'use strict';
 
-export const usersLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn')) || [];
+    const users = JSON.parse(localStorage.getItem('users')) || [
+        {
+            id: 1,
+            firstName: 'Genilson',
+            lastName: 'Araújo',
+            email: 'genilsonaraujo07@gmail.com',
+            password: '123456780',
+            isAdmin: true,
+            status: 'Offline',
+        }
+    ];
 
-localStorage.setItem('userLoggedIn', JSON.stringify(usersLoggedIn));
-localStorage.setItem('users', JSON.stringify(users));
+    const usersLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn')) || [];
+
+    localStorage.setItem('userLoggedIn', JSON.stringify(usersLoggedIn));
+    localStorage.setItem('users', JSON.stringify(users));
+
+}
+
+setDefault();
