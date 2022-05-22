@@ -95,7 +95,6 @@ body {
 
 .wrapper-container .menu .main-content div {
   border-bottom: 1px solid gray;
-  padding-block: 1.4rem;
 }
 
 .wrapper-container .menu .main-content div a {
@@ -107,6 +106,7 @@ body {
   width: 100%;
   text-decoration: none;
   color: #fff;
+  padding-block: 1.4rem;
   padding-left: 0.4rem;
 }
 
@@ -124,7 +124,7 @@ main .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #8c8f94;
+  color: #fff;
   height: 4rem;
   border-bottom: 0.1px solid #2c3338;
   padding-inline: 1rem;
@@ -143,7 +143,7 @@ main .main-header {
 }
 
 section .title {
-  color: #8c8f94;
+  color: #fff;
   text-transform: uppercase;
   text-align: center;
   margin-top: 3rem;
@@ -170,7 +170,7 @@ section .title {
   font-size: 2rem;
   text-align: center;
   margin-top: 0.4rem;
-  color: rgba(255, 255, 255, 0.647);
+  color: #fff;
 }
 
 .add-note-modal {
@@ -258,4 +258,8 @@ textarea {
 
 .note .delete-box i {
   cursor: pointer;
+}
+
+.trash-container {
+  display: none;
 }
