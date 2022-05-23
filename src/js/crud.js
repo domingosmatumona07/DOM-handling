@@ -1,10 +1,9 @@
 export function createUser(firstName, lastName, email, password) {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    const ids = users.map((user) => user.id);
-    const greaterId = Math.max(...ids);
+    
     users.push(
         {
-            id: greaterId + 1,
+            id: id_ && id_ || 2, 
             firstName,
             lastName,
             email,
@@ -37,15 +36,15 @@ function deleteAllUserData(users, userId, userTargetIndex) {
     localStorage.setItem('trash', JSON.stringify(trash));
 }
 
-export function updateUserById(users, id, datas) {
-    const index = userIndex(users, id);
-    users[index] = {...users[index], ...datas};
-}
+// export function updateUserById(users, id, datas) {
+//     const index = userIndex(users, id);
+//     users[index] = {...users[index], ...datas};
+// }
 
-export function addAdmin(users, id) {
-    let user = users.find(user => user.id === id);
-    user = [...user, isAdmin = true];
-}
+// export function addAdmin(users, id) {
+//     let user = users.find(user => user.id === id);
+//     user = [...user, isAdmin = true];
+// }
 
 export function userIndex(users, id) {
     const index = users.findIndex(user => user.id === id);

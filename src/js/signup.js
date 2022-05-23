@@ -7,8 +7,8 @@ const signUpForm = document.querySelector('.signup-form');
 const formModal = document.querySelector('.sign-modal');
 
 signUpForm.addEventListener('submit', (event) => {
-        const users = JSON.parse(localStorage.getItem('users')) || [];
         event.preventDefault();
+        const users = JSON.parse(localStorage.getItem('users')) || [];
         if(signUpStatusOk()) {
             if(userAlreadyExists(email.value, users)) {
                 showModal('This user already exists!');
@@ -16,14 +16,13 @@ signUpForm.addEventListener('submit', (event) => {
                 createUser(firstName.value, lastName.value, email.value, password.value);
                 showModal('Register sucessful!');
                 setTimeout(() => {
-                    document.location = 'http://127.0.0.1:5500/src/index.html';
+
                 }, 1150);
             }
             return;
         }
 
         showModal('Preencha todos os campos corretamente!');
-        hideModal();
 });
 
 function showModal(text) {
@@ -34,7 +33,4 @@ function showModal(text) {
     }, 1300);
 }
 
-function userAlreadyExists(email, users) {
-    const user = users.find(user => user.email == email);
-    return user && true || false; 
-}
+const userAlreadyExists = () => users.some(user => user.email === email);
